@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-            CameraLook();
+        CameraLook();
     }
 
     public void OnLookInput(InputAction.CallbackContext context)
