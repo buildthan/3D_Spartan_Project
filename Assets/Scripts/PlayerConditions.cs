@@ -29,7 +29,7 @@ public class PlayerConditions : MonoBehaviour
             curHealth = 0;
         }
 
-        if( curHealth < maxHealth) //패시브 체력 회복량
+        if( curHealth <= maxHealth) //패시브 체력 회복량
         {
             curHealth += passiveHealth * Time.deltaTime;
         }

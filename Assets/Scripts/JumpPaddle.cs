@@ -10,7 +10,6 @@ public class JumpPaddle : MonoBehaviour
     {
         if (on.gameObject.CompareTag("Player"))
         {
-            Debug.Log("점프패드밟음");
             Player.Instance.controller.rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
         }
     }
