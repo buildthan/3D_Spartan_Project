@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
     }
 
