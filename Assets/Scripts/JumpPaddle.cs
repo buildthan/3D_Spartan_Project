@@ -6,7 +6,7 @@ public class JumpPaddle : MonoBehaviour
 {
     public float jumpPower;
 
-    private void OnTriggerEnter(Collider on)
+    private void OnTriggerEnter(Collider on) // 점프 패드를 밟을 경우 위로 솟구쳐오름
     {
         if (on.gameObject.CompareTag("Player"))
         {

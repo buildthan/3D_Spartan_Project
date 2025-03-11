@@ -23,7 +23,6 @@ public class Interaction : MonoBehaviour
         camera = Camera.main;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Time.time - lastCheckTime > checkRate)
@@ -51,13 +50,13 @@ public class Interaction : MonoBehaviour
         }
     }
 
-    private void SetPromptText()
+    private void SetPromptText() //아이템 정보 출력용
     {
         Text.gameObject.SetActive(true);
         Text.text = curInteractable.GetInteractPrompt();
     }
 
-    public void OnTriggerEnter(Collider on)
+    public void OnTriggerEnter(Collider on) //아이템과 부딪칠 경우 아이템 효과 발동
     {
         if(on.CompareTag("Interactable"))
         {

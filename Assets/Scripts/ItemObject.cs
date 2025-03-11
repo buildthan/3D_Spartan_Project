@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public interface IInteractable
+public interface IInteractable //상호작용 인터페이스
 {
     public string GetInteractPrompt();
     public void OnInteract();
@@ -16,7 +16,7 @@ public class ItemObject : MonoBehaviour, IInteractable
 
     private float cup;
 
-    public string GetInteractPrompt()
+    public string GetInteractPrompt() //아이템 정보 출력용
     {
         string str = $"{data.itemName}\n{data.itemDescription}";
         return str;

@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private IEnumerator coroutine;
     private float cup;
 
-    public static Player Instance
+    public static Player Instance //다른 스크립트에서 접근할 수 있게 인스턴스 설정
     {
         get
         {
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Awake() //player 오브젝트를 싱글톤으로 지정합니다
     {
         if (instance == null)
         {
@@ -44,13 +44,13 @@ public class Player : MonoBehaviour
         controller = GetComponent<PlayerController>();
     }
 
-    public void SpeedUp(float power, float duration)
+    public void SpeedUp(float power, float duration) // 스피드 업 아이템을 먹은 경우
     {
         coroutine = SpeedUpDelay(power,duration);
         StartCoroutine(coroutine);
     }
 
-    private IEnumerator SpeedUpDelay(float power,float duration)
+    private IEnumerator SpeedUpDelay(float power,float duration) // 스피드 업 코루틴
     {
         while (true)
         {

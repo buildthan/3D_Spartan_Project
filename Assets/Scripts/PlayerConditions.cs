@@ -19,7 +19,7 @@ public class PlayerConditions : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (curHealth > maxHealth)
+        if (curHealth > maxHealth) 
         {
             curHealth = maxHealth;
         }
@@ -35,7 +35,7 @@ public class PlayerConditions : MonoBehaviour
         }
 
 
-        HealthUI.fillAmount = curHealth / maxHealth;
+        HealthUI.fillAmount = curHealth / maxHealth; //hp 정보 출력용
 
     }
 

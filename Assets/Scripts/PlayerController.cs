@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>(); //player rigidbody 지정용
     }
 
     private void FixedUpdate()
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     bool IsGrounded()
     {
-        Ray[] rays = new Ray[4]
+        Ray[] rays = new Ray[4] // 원점, 방향 지정용, 책상다리처럼
         {
             new Ray(transform.position + (transform.forward * 0.2f) + (transform.up * 1f), Vector3.down),
             new Ray(transform.position + (-transform.forward * 0.2f) + (transform.up * 1f), Vector3.down),
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         for (int i = 0; i < rays.Length;  i++)
         {
 
-            if (Physics.Raycast(rays[i], 1f, groundLayerMask))
+            if (Physics.Raycast(rays[i], 1f, groundLayerMask)) //생각보다 짧으므로 1f 정도 길이로 싸줘야함
             {
                 return true;
             }
