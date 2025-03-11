@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.InputSystem.XR;
 
 public class Interaction : MonoBehaviour
 {
@@ -20,7 +22,14 @@ public class Interaction : MonoBehaviour
 
     void Start()
     {
-        camera = Camera.main;
+        try //예외처리용
+        {
+            camera = Camera.main;
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError(e.ToString());
+        }
     }
 
     void Update()

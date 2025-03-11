@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,8 +24,16 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        try //예외처리용
+        {
+            rigidbody = GetComponent<Rigidbody>(); //player rigidbody 지정용
+        }
+        catch (NullReferenceException e)
+        {
+            Debug.LogError(e.ToString());
+        }
+
         Cursor.lockState = CursorLockMode.Locked;
-        rigidbody = GetComponent<Rigidbody>(); //player rigidbody 지정용
     }
 
     private void FixedUpdate()

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -41,7 +42,15 @@ public class Player : MonoBehaviour
             }
         }
 
-        controller = GetComponent<PlayerController>();
+
+
+        try //예외처리용
+        {
+            controller = GetComponent<PlayerController>();
+        }catch(NullReferenceException e)
+        {
+            Debug.LogError(e.ToString());
+        }
     }
 
     public void SpeedUp(float power, float duration) // 스피드 업 아이템을 먹은 경우
