@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum Type
 {
-    SpeedUp
+    SpeedUp,
+    JumpUp
 }
 
 

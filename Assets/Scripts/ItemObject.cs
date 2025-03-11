@@ -29,6 +29,11 @@ public class ItemObject : MonoBehaviour, IInteractable
             Player.Instance.SpeedUp(data.itemPower,data.itemDuration);
         }
 
+        if (data.type == Type.JumpUp) //점프업 아이템을 먹은 경우
+        {
+            Player.Instance.JumpUp(data.itemPower, data.itemDuration);
+        }
+
         Destroy(gameObject);
     }
 

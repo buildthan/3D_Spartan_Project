@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     public ItemData itemData;
 
     private IEnumerator coroutine;
-    private float cup;
+    private float speedCup;
+    private float jumpCup;
 
     public static Player Instance //다른 스크립트에서 접근할 수 있게 인스턴스 설정
     {
@@ -64,11 +65,31 @@ public class Player : MonoBehaviour
         while (true)
         {
             Debug.Log($"스피드업 효과 시작 : {duration}초");
-            cup = controller.moveSpeed;
-            controller.moveSpeed = cup + power;
+            speedCup = controller.moveSpeed;
+            controller.moveSpeed = speedCup + power;
             yield return new WaitForSeconds(duration); //waitTime 만큼 딜레이후 다음 코드가 실행된다.
             Debug.Log("스피드업 효과 종료");
-            controller.moveSpeed = cup;
+            controller.moveSpeed = speedCup;
+            break;
+        }
+    }
+
+    public void JumpUp(float power, float duration)
+    {
+        coroutine = JumpUpDelay(power, duration);
+        StartCoroutine(coroutine);
+    }
+
+    private IEnumerator JumpUpDelay(float power, float duration) // 스피드 업 코루틴
+    {
+        while (true)
+        {
+            Debug.Log($"점프업 효과 시작 : {duration}초");
+            jumpCup = controller.jumpPower;
+            controller.jumpPower = jumpCup + power;
+            yield return new WaitForSeconds(duration); //waitTime 만큼 딜레이후 다음 코드가 실행된다.
+            Debug.Log("점프업 효과 종료");
+            controller.jumpPower = jumpCup;
             break;
         }
     }
